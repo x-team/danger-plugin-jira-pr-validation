@@ -1,0 +1,11 @@
+{
+  "generator-danger-plugin": {
+    "promptValues": {
+      "authorName": "Gustavo T. Rudiger",
+      "authorEmail": "gustavo@trudax.tech",
+      "githubUsername": "gustavotr",
+      "useYarn": true,
+      "useTypeScript": true
+    }
+  }
+}
