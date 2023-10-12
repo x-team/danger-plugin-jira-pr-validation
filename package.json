@@ -16,7 +16,8 @@
   "keywords": [
     "danger",
     "danger-plugin",
-    "jira github"
+    "jira",
+    "github"
   ],
   "version": "0.0.0-development",
   "main": "dist/index.js",
