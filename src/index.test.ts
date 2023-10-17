@@ -17,14 +17,21 @@ describe("jiraPrValidation()", () => {
     global.markdown = undefined;
   });
 
-  it("Checks for a that message has been called", () => {
+  it("Checks for a that message has been called", async () => {
     global.danger = {
-      github: { pr: { title: "My Test Title", base: "pr-base" } },
+      github: {
+        pr: {
+          title: "My Test Title",
+          base: { ref: "pr-base" },
+          head: { ref: "pr-head" },
+        },
+      },
     };
 
-    jiraPrValidation();
+    await jiraPrValidation("baseUrl", "username", "token", "projectKey");
 
     expect(global.message).toHaveBeenCalledWith("PR Title: My Test Title");
     expect(global.message).toHaveBeenCalledWith("PR Base: pr-base");
+    expect(global.message).toHaveBeenCalledWith("PR Head: pr-head");
   });
 });
