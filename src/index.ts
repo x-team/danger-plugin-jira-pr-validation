@@ -1,4 +1,3 @@
-// Provides dev-time type structures for  `danger` - doesn't affect runtime.
 import { DangerDSLType } from "../node_modules/danger/distribution/dsl/DangerDSL";
 import { JiraClient } from "./clients/jira-client";
 declare const danger: DangerDSLType;
@@ -15,34 +14,35 @@ export default async function jiraPrValidation(
   username: string,
   token: string,
   projectKey: string,
+  level: "fail" | "warn" = "fail",
 ) {
-  // Replace this with the code from your Dangerfile
-  const title = danger.github.pr.title;
   const base = danger.github.pr.base.ref;
   const head = danger.github.pr.head.ref;
-  message(`PR Title: ${title}`);
-  message(`PR Base: ${base}`);
-  message(`PR Head: ${head}`);
 
   const jiraClient = new JiraClient(baseUrl, username, token, projectKey);
 
   const jiraKey = jiraClient.extractJiraKey(head);
 
-  message("jiraKey " + jiraKey);
   if (!jiraKey) {
     warn("⚠️ No Jira key found in branch name, exiting");
     return;
   }
 
   const jiraIssue = await jiraClient.getIssue(jiraKey);
-  message("jiraIssue " + jiraIssue);
   if (!jiraIssue) {
     warn("⚠️ Could not get issue, exiting");
     return;
   }
 
-  if (fixVersionsMatchesBranch(base, jiraIssue.fixVersions)) {
-    fail("🚨 Base branch doesn't match Jira fixVersion");
+  message("Jira issue: " + jiraIssue);
+
+  if (!fixVersionsMatchesBranch(base, jiraIssue.fixVersions)) {
+    const message = "🚨 Base branch doesn't match Jira fixVersion";
+    if (level === "warn") {
+      warn(message);
+    } else {
+      fail(message);
+    }
   }
 }
 

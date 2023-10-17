@@ -21,7 +21,11 @@ export class JiraIssue {
   ) {}
 
   toString(): string {
-    return `${this.key} | ${this.type} | ${this.title}`;
+    let issue = `${this.key} | ${this.type} | ${this.title}`;
+    if (this.fixVersions?.length) {
+      issue += `\nFix versions: ${this.fixVersions.join(" ")}`;
+    }
+    return issue;
   }
 }
 
