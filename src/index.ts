@@ -16,12 +16,13 @@ export default async function jiraPrValidation(
   projectKey: string,
   level: "fail" | "warn" = "fail",
 ) {
+  const title = danger.github.pr.title;
   const base = danger.github.pr.base.ref;
   const head = danger.github.pr.head.ref;
 
   const jiraClient = new JiraClient(baseUrl, username, token, projectKey);
 
-  const jiraKey = jiraClient.extractJiraKey(head);
+  const jiraKey = jiraClient.extractJiraKey(title + head);
 
   if (!jiraKey) {
     warn("⚠️ No Jira key found in branch name, exiting");
