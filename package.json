@@ -7,12 +7,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gustavotr/danger-plugin-jira-pr-validation.git"
+    "url": "https://github.com/x-team/danger-plugin-jira-pr-validation.git"
   },
   "bugs": {
-    "url": "https://github.com/gustavotr/danger-plugin-jira-pr-validation/issues"
+    "url": "https://github.com/x-team/danger-plugin-jira-pr-validation/issues"
   },
-  "homepage": "https://github.com/gustavotr/danger-plugin-jira-pr-validation#readme",
+  "homepage": "https://github.com/x-team/danger-plugin-jira-pr-validation#readme",
   "keywords": [
     "danger",
     "danger-plugin",
