@@ -18,10 +18,17 @@ At a glance:
 
 ```js
 // dangerfile.js
-import jiraPrValidation from 'danger-plugin-jira-pr-validation'
+import jiraPrValidation from "danger-plugin-jira-pr-validation";
 
-jiraPrValidation()
+jiraPrValidation(
+  JIRA_BASE_URL,
+  JIRA_USERNAME,
+  JIRA_TOKEN,
+  JIRA_PROJECT_KEY,
+  MESSAGE_LEVEL,
+);
 ```
+
 ## Changelog
 
 See the GitHub [release history](https://github.com/gustavotr/danger-plugin-jira-pr-validation/releases).
