@@ -8,19 +8,10 @@
     "pretty": true,
     "strictNullChecks": true,
     "declaration": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
-  "lib": [
-    "es2023"
-  ],
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "dangerfile.ts"
-  ],
-  "exclude": [
-    "dangerfile.ts",
-    "node_modules",
-    "dist"
-  ]
+  "lib": ["es2023"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "dangerfile.ts"],
+  "exclude": ["dangerfile.ts", "node_modules", "dist"]
 }
