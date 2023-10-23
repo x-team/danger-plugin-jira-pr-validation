@@ -1,6 +1,6 @@
 import nock from "nock";
 
-import { jiraPrValidation } from "./index";
+import jiraPrValidation from "./index";
 
 declare const global: any;
 

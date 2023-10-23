@@ -1,6 +1,6 @@
-import { danger, schedule } from "danger";
+import { schedule } from "danger";
 
-import { jiraPrValidation } from "./src/index";
+import jiraPrValidation from "./src/index";
 
 schedule(
   jiraPrValidation("baseUrl", "username", "token", "projectKey", "fail"),

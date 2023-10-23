@@ -9,7 +9,7 @@ export declare function markdown(message: string): void;
 /**
  * Import metadata from the issue on Jira and perform validations
  */
-export async function jiraPrValidation(
+export default async function jiraPrValidation(
   baseUrl: string,
   username: string,
   token: string,
